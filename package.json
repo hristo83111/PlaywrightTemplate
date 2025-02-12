@@ -1,0 +1,23 @@
+{
+  "name": "playwrighttemplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hristo83111/PlaywrightTemplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hristo83111/PlaywrightTemplate/issues"
+  },
+  "homepage": "https://github.com/hristo83111/PlaywrightTemplate#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1"
+  }
+}
