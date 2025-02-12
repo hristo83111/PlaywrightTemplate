@@ -1,23 +1,45 @@
 {
   "name": "playwrighttemplate",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
+  "description": "Playwright template project",
+  "author": "Hristo Georgiev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hristo83111/PlaywrightTemplate.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/hristo83111/PlaywrightTemplate/issues"
+  "scripts": {
+    "tlint": "npx eslint **/*.ts --fix",
+    "prettierFormat": "prettier --write **/*.ts",
+    "prepare": "husky install"
   },
-  "homepage": "https://github.com/hristo83111/PlaywrightTemplate#readme",
-  "description": "",
+  "scripts-description": {
+    "tlint": "Run eslint for typescript files only (this command is going to be executed pre-commit)",
+    "prettierFormat": "Run prettier and fix the formatting of typescript files",
+    "prepare": "Sets up Husky by installing Git hooks after dependencies are installed"
+  },
+  "license": "ISC",
+  "type": "module",
+  "lint-staged": {
+    "*.ts": [
+      "npx eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "husky": "^9.1.7"
+  },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.1"
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-playwright": "^2.2.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.0",
+    "typescript": "^5.7.3",
+    "husky": "^8.0.0"
   }
 }
