@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/playwright:v1.50.1-jammy
+
+# Create and set the working directory
+RUN mkdir /app
+WORKDIR /app
+
+# Copy project files to the container
+COPY . /app/
+
+# Install dependencies
+RUN npm ci
+
+# Install Playwright dependencies
+RUN npx playwright install
+
+# Define volumes for reports and test results
+VOLUME /app/playwright-report
+VOLUME /app/test-results
+
+# Set the default command if you do not want to use docker-compose.yml
+# CMD ["npx", "playwright", "test", "--grep=''", "--grep-invert=''", "--config=./playwright-local.config.ts", "--project=Chrome"]

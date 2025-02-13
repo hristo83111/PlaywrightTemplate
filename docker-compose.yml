@@ -1,0 +1,10 @@
+services:
+  playwright-test:
+    image: playwrightemplate
+    build:
+      context: .
+      dockerfile: ./Dockerfile.local
+    command: npx playwright test
+    volumes:
+      - ${PWD}/playwright-report:/app/playwright-report
+      - ${PWD}/test-results:/app/test-results
