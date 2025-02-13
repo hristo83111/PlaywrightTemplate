@@ -8,13 +8,11 @@
   },
   "scripts": {
     "tlint": "npx eslint **/*.ts --fix",
-    "prettierFormat": "prettier --write **/*.ts",
-    "prepare": "husky install"
+    "prettierFormat": "prettier --write **/*.ts"
   },
   "scripts-description": {
     "tlint": "Run eslint for typescript files only (this command is going to be executed pre-commit)",
-    "prettierFormat": "Run prettier and fix the formatting of typescript files",
-    "prepare": "Sets up Husky by installing Git hooks after dependencies are installed"
+    "prettierFormat": "Run prettier and fix the formatting of typescript files"
   },
   "license": "ISC",
   "type": "module",
@@ -39,7 +37,6 @@
     "eslint-plugin-prettier": "^5.2.3",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.0",
-    "typescript": "^5.7.3",
-    "husky": "^8.0.0"
+    "typescript": "^5.7.3"
   }
 }
