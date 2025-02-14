@@ -22,7 +22,7 @@ jobs:
           TAG: ${{ vars.TAG }}
           INVERT_TAG: ${{ vars.INVERT_TAG }}
           PROJECT: ${{ vars.PROJECT }}
-        run: npx cross-env playwright test --grep="${TAG}" --grep-invert="${INVERT_TAG}" --config=./playwright-cicd.config.ts --project=${PROJECT}
+        run: npx cross-env playwright test --grep="${TAG}" --grep-invert="${INVERT_TAG}" --config=./playwright.config.ts --project=${PROJECT}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
