@@ -8,7 +8,6 @@ import { Authentication } from 'core/api/types/Authentication'
 import { AuthenticationType } from 'core/api/types/AuthenticationType'
 import { BaseAuthentication } from 'core/api/types/BaseAuthentication'
 
-/* eslint-disable */
 export const restBuilder = (): RestBuilder => {
   let client: APIRequestContext
   let initialRequestState: APIRequest
@@ -81,7 +80,7 @@ export const restBuilder = (): RestBuilder => {
       return this
     },
 
-    withBody(body: Record<string, any>) {
+    withBody(body: unknown) {
       initialRequestState.options.data = body
 
       return this

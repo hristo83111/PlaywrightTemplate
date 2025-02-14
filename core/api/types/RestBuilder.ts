@@ -16,7 +16,7 @@ export interface RestBuilder {
   withHeaders: (headers: Record<string, string>) => RestBuilder
   withParams: (params: Record<string, string | number | boolean>) => RestBuilder
   withForm: (form: Record<string, string | number | boolean>) => RestBuilder
-  withBody: (body: Record<string, unknown>) => RestBuilder
+  withBody: (body: unknown) => RestBuilder
   withMultiPart: (
     multipart: Record<
       string,

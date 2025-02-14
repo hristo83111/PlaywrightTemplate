@@ -8,7 +8,7 @@ export interface APIRequest {
      * `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will
      * be set to `application/octet-stream` if not explicitly set.
      */
-    data?: Record<string, unknown>
+    data?: unknown
 
     /**
      * Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
