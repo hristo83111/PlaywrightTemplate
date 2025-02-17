@@ -1,5 +1,4 @@
 export enum Project {
-  'MCOL' = 52,
-  'FNDA' = 31,
-  'MCOLCPI' = 53
+  'BSOM' = 1,
+  'RTIS' = 2
 }

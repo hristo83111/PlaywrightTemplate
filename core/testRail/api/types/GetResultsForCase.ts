@@ -1,4 +1,4 @@
-export type GetResultForCase = {
+export interface GetResultForCase {
   id: number
   test_id: number
   status_id: number

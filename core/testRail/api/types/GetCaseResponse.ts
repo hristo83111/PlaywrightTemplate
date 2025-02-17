@@ -1,11 +1,11 @@
-type CustomStepsSeparated = {
+interface CustomStepsSeparated {
   content: string
   expected: string
   additional_info: string
   refs: string
 }
 
-export type GetCaseResponse = {
+export interface GetCaseResponse {
   id: number
   title: string
   section_id: number

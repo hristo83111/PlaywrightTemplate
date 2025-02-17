@@ -1,5 +1,14 @@
 import { defineConfig, devices } from '@playwright/test'
 
+process.env.TESTRAIL_USERNAME = 'hristo.georgiev@moneycorp.com'
+process.env.TESTRAIL_PASSWORD = '830831asdF!'
+process.env.TESTRAIL_ENABLED = 'TRUE'
+process.env.TESTRAIL_TEST_RUN_ID = '12895'
+process.env.TESTRAIL_PROJECT = 'MCOL'
+//process.env.TESTRAIL_CASES_FILTER = '2'
+//process.env.TESTRAIL_RUN_NAME = 'Automated Created Run'
+//process.env.TESTRAIL_UPDATE_RUN = 'TRUE'
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv

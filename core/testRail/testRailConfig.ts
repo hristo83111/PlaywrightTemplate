@@ -1,6 +1,6 @@
 export const testRailConfig = {
-  baseUrl: 'https://apptestrail',
-  partialUrl: '/index.php?/api/v2',
+  baseUrl: '',
+  partialUrl: '',
   username: process.env.TESTRAIL_USERNAME || '',
   password: process.env.TESTRAIL_PASSWORD || '',
   enabled: process.env.TESTRAIL_ENABLED === 'TRUE',

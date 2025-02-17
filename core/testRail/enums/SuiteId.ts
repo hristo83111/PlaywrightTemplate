@@ -1,5 +1,4 @@
 export enum SuiteId {
-  MCOL = 2521,
-  FNDA = 2391,
-  CPI = 2558
+  BSOM = 20,
+  RTIS = 21
 }

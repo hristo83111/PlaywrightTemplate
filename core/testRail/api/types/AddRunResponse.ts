@@ -1,4 +1,4 @@
-export type AddRunResponse = {
+export interface AddRunResponse {
   assignedto_id: number
   blocked_count: number
   completed_on: string

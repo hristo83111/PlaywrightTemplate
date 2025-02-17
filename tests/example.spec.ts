@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test'
 
-test('has title', { tag: ['@regression', '@smoke'] }, async ({ page }) => {
-  await page.goto('https://playwright.dev/')
+test(
+  'has title @C420819',
+  { tag: ['@regression', '@smoke'] },
+  async ({ page }) => {
+    await page.goto('https://playwright.dev/')
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/)
-  console.log(process.env.ENVIRONMENT)
-})
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Playwright/)
+  }
+)
 
-test('get started link', { tag: ['@regression'] }, async ({ page }) => {
+test('get started link @C72810', { tag: ['@regression'] }, async ({ page }) => {
   await page.goto('https://playwright.dev/')
 
   // Click the get started link.

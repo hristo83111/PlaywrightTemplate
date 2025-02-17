@@ -1,4 +1,4 @@
-export type AddRunRequest = {
+export interface AddRunRequest {
   suite_id: number
   name: string
   description: string
