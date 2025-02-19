@@ -31,7 +31,7 @@ import { FluentRestClient } from 'core/api/types/FluentRestClient'
  *   .withBody({ key: 'value' })
  *   .executePostAsync()
  */
-export const createClient = async (
+export const createRestClient = async (
   baseUrl: string
 ): Promise<FluentRestClient> => {
   let authenticationParams: AuthenticationParams = {}
@@ -59,11 +59,6 @@ export const createClient = async (
   await initializeClient()
 
   const restClient: FluentRestClient = {
-    withoutAuthentication: async () => {
-      await setAuthentication({})
-      return restClient
-    },
-
     withAuthorizationHeader: async (authorizationValue: string) => {
       await setAuthentication({
         extraHTTPHeaders: { Authorization: authorizationValue }

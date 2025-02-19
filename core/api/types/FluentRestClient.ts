@@ -13,13 +13,6 @@ import { HttpCredentials } from 'core/api/types/HttpCredentials'
  */
 export type FluentRestClient = {
   /**
-   * Initializes the client without authentication.
-   *
-   * @returns FluentRestClient - the updated instance of the client with no authentication.
-   */
-  withoutAuthentication: () => Promise<FluentRestClient>
-
-  /**
    * Sets the Authorization header with a provided value (e.g., Bearer token).
    *
    * @param authorizationValue - The value for the Authorization header (e.g., 'Bearer token').

@@ -1,4 +1,4 @@
-import { createClient } from 'core/api/createRestClient'
+import { createRestClient } from 'core/api/restClient'
 import { HttpCredentials } from 'core/api/types/HttpCredentials'
 import { testRailConfig } from 'core/testRail/testRailConfig'
 
@@ -33,7 +33,7 @@ export const getTestRailClient = async () => {
     send: 'always'
   }
 
-  const client = await createClient(baseUrl)
+  const client = await createRestClient(baseUrl)
 
   return client.withBaseAuthentication(credentials)
 }
