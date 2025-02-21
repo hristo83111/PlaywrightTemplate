@@ -1,17 +1,17 @@
 import js from '@eslint/js'
-import ts from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
+import tseslint from 'typescript-eslint'
 import playwright from 'eslint-plugin-playwright'
 import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
 
-export default [
+export default tseslint.config(
   js.configs.recommended, // ESLint recommended rules
+  tseslint.configs.recommended, // TypeScript recommended rules
   prettierConfig, // Disable conflicting ESLint rules
   {
     files: ['**/*.ts'], // Apply these rules only to TypeScript files
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       sourceType: 'module',
       globals: {
         console: 'readonly', // Fix "console is not defined"
@@ -20,7 +20,6 @@ export default [
       }
     },
     plugins: {
-      '@typescript-eslint': ts,
       playwright,
       prettier // Enable Prettier
     },
@@ -39,4 +38,4 @@ export default [
       'prettier/prettier': 'error' // Enforce Prettier formatting
     }
   }
-]
+)

@@ -41,7 +41,7 @@ export const logAPIErrorDetailsOnFailure = async (
       return parsedBody !== undefined
         ? JSON.stringify(parsedBody, null, 2)
         : emptyBodyMessage
-    } catch (error) {
+    } catch {
       // Return emty body if parsing fails
       return body || emptyBodyMessage
     }

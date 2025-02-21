@@ -8,33 +8,35 @@ import { UserCredentials } from 'testData/types/UserCredentials'
 
 const getLocators = (page: Page) => {
   return {
+    usernameTextbox: page.getByRole('textbox', { name: 'Username' }),
     emailTextbox: page.getByRole('textbox', { name: 'Email' }),
     passwordTextbox: page.getByRole('textbox', { name: 'Password' }),
-    signInButton: page.getByRole('button', { name: 'Sign in' })
+    signUpButton: page.getByRole('button', { name: 'Sign up' })
   }
 }
 
 const getActions = (page: Page) => {
   const locators = getLocators(page)
 
-  const login = async (userCredentials: UserCredentials) => {
-    await step('Successful login', async () => {
-      const { email, password } = userCredentials
+  const register = async (userCredentials: UserCredentials) => {
+    await step('', async () => {
+      const { username, email, password } = userCredentials
 
+      await locators.usernameTextbox.fill(username!)
       await locators.emailTextbox.fill(email)
       await locators.passwordTextbox.fill(password)
-      await locators.signInButton.click()
+      await locators.signUpButton.click()
     })
   }
 
   return {
-    login
+    register
   }
 }
 
-export const buildLoginPage = (page: Page) => ({
+export const buildRegisterPage = (page: Page) => ({
   locators: getLocators(page),
   actions: getActions(page)
 })
 
-export type LoginPage = ReturnType<typeof buildLoginPage>
+export type RegisterPage = ReturnType<typeof buildRegisterPage>
