@@ -18,9 +18,10 @@ import { step } from 'core/utils/step'
 
 // Types
 import { ArticleResponse } from 'api/types/conduit/ArticleResponse'
+import { CommonTestData } from 'tests/types/CommonTestData'
 
 test.describe('POST article ', () => {
-  const articleTestData = [
+  const articleTestData: CommonTestData[] = [
     {
       userCredentials: users.uk,
       testTitle: 'UK @C1111'

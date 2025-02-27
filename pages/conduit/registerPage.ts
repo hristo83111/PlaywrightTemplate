@@ -19,7 +19,7 @@ const getActions = (page: Page) => {
   const locators = getLocators(page)
 
   const register = async (userCredentials: UserCredentials) => {
-    await step('', async () => {
+    await step('Seccessful registration', async () => {
       const { username, email, password } = userCredentials
 
       await locators.usernameTextbox.fill(username!)
