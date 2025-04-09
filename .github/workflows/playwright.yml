@@ -3,6 +3,19 @@ on:
   pull_request:
     branches: [master, development]
   workflow_dispatch:
+    inputs:
+      TAG:
+        description: 'Tag to run tests for'
+        required: false
+        default: ''
+      INVERT_TAG:
+        description: 'Invert tag for tests'
+        required: false
+        default: ''
+      PROJECT:
+        description: 'Playwright project to run'
+        required: false
+        default: ''
 jobs:
   test:
     timeout-minutes: 60
