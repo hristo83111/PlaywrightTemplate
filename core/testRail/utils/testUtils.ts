@@ -134,7 +134,7 @@ const getTestInfo = (page: Page, testInfo: TestInfo, caseId: number) => {
     `Status: ${status}`,
     `Attempt: ${retry + 1}`,
     `Project: ${project.name}`,
-    `Environment: ${process.env.MC_ENVIRONMENT ?? 'QA'}`,
+    `Environment: ${process.env.ENVIRONMENT ?? 'QA'}`,
     `Most recent URL: ${page.url()}`,
     `Duration: ${formatDuration(duration)}`,
     `Playwright Test 🎭`,

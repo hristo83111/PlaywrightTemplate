@@ -210,7 +210,7 @@ export const createAddRunRequest = async (
 
   const runName = `${
     testRailConfig.runName ||
-    `${projectKey} ${process.env.MC_ENVIRONMENT || 'QA'} Automated Regression Pack`
+    `${projectKey} ${process.env.ENVIRONMENT || 'QA'} Automated Regression Pack`
   }  ${formatTestRunDate()}`
 
   const runDescription = `Playwright Test 🎭. Test run created ${formatTestRunDate()} (UTC)`
