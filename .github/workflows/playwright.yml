@@ -4,18 +4,22 @@ on:
     branches: [master, development]
   workflow_dispatch:
     inputs:
+      ENVIRONMENT:
+        description: 'ENVIRONMENT'
+        required: false
+        default: 'QA'
       TAG:
-        description: 'Tag to run tests for'
+        description: 'TAG'
         required: false
         default: ''
       INVERT_TAG:
-        description: 'Invert tag for tests'
+        description: 'INVERT_TAG'
         required: false
         default: ''
       PROJECT:
-        description: 'Playwright project to run'
+        description: 'PROJECT'
         required: false
-        default: ''
+        default: 'RegressionChrome'
 jobs:
   test:
     timeout-minutes: 60
@@ -30,11 +34,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        env:
-          TAG: ${{ vars.TAG }}
-          INVERT_TAG: ${{ vars.INVERT_TAG }}
-          PROJECT: ${{ vars.PROJECT }}
-        run: npx cross-env playwright test --grep="${TAG}" --grep-invert="${INVERT_TAG}" --config=./playwright.config.ts --project=${PROJECT}
+        run: npx cross-env playwright test ENVIRONMENT="${{inputs.ENVIRONMENT}}" --grep="${{inputs.TAG}}" --grep-invert="${{inputs.INVERT_TAG}}" --config=./playwright.config.ts --project=${{inputs.PROJECT}}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

@@ -11,13 +11,15 @@ type Settings = EnvironmentSettings & ConstSettings
 
 const getSettings = (): Settings => {
   const getEnvironmentSettings = () => {
-    switch (process.env.MC_ENVIRONMENT) {
+    switch (process.env.ENVIRONMENT) {
+      case 'QA':
+        return qaSettings
       case 'Stage':
         return stageSettings
       case 'Prod':
         return prodSettings
       default:
-        return qaSettings
+        throw Error('Environment is not set.')
     }
   }
   const environmentSetings = getEnvironmentSettings()
