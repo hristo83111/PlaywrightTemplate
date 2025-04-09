@@ -1,4 +1,5 @@
 name: Playwright Tests
+
 on:
   pull_request:
     branches: [master, development]
@@ -20,10 +21,18 @@ on:
         description: 'PROJECT'
         required: false
         default: 'RegressionChrome'
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      # VS Code may warn, but this works in GitHub Actions
+      ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT || vars.ENVIRONMENT }}
+      TAG: ${{ github.event.inputs.TAG || vars.TAG }}
+      INVERT_TAG: ${{ github.event.inputs.INVERT_TAG || vars.INVERT_TAG }}
+      PROJECT: ${{ github.event.inputs.PROJECT || vars.PROJECT }}
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,7 +43,17 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx cross-env ENVIRONMENT=${{inputs.ENVIRONMENT}} playwright test --grep="${{inputs.TAG}}" --grep-invert="${{inputs.INVERT_TAG}}" --config=./playwright.config.ts --project=${{inputs.PROJECT}}
+        run: |
+          echo "ENVIRONMENT=$ENVIRONMENT"
+          echo "TAG=$TAG"
+          echo "INVERT_TAG=$INVERT_TAG"
+          echo "PROJECT=$PROJECT"
+          npx cross-env ENVIRONMENT=$ENVIRONMENT \
+            playwright test \
+            --grep="$TAG" \
+            --grep-invert="$INVERT_TAG" \
+            --config=./playwright.config.ts \
+            --project=$PROJECT
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
