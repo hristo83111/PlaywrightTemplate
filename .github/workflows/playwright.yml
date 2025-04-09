@@ -34,7 +34,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx cross-env playwright test ENVIRONMENT="${{inputs.ENVIRONMENT}}" --grep="${{inputs.TAG}}" --grep-invert="${{inputs.INVERT_TAG}}" --config=./playwright.config.ts --project=${{inputs.PROJECT}}
+        run: npx cross-env ENVIRONMENT=${{inputs.ENVIRONMENT}} playwright test --grep="${{inputs.TAG}}" --grep-invert="${{inputs.INVERT_TAG}}" --config=./playwright.config.ts --project=${{inputs.PROJECT}}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
