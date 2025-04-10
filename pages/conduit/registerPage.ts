@@ -18,7 +18,7 @@ const getLocators = (page: Page) => {
 const getActions = (page: Page) => {
   const locators = getLocators(page)
 
-  const register = async (userCredentials: UserCredentials) => {
+  const registerUser = async (userCredentials: UserCredentials) => {
     await step('Seccessful registration', async () => {
       const { username, email, password } = userCredentials
 
@@ -30,7 +30,7 @@ const getActions = (page: Page) => {
   }
 
   return {
-    register
+    registerUser
   }
 }
 

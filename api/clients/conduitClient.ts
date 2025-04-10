@@ -1,4 +1,4 @@
-import { settings } from 'settings/settings'
+import { getSettings } from 'settings/settings'
 
 // Clients
 import { createRestClient } from 'core/api/restClient'
@@ -41,7 +41,7 @@ const getAccessToken = async (
  * @returns A FluentRestClient instance, authenticated if credentials are provided.
  */
 export const getConduitClient = async (userCredentials?: UserCredentials) => {
-  const client = await createRestClient(settings.apiUrls.conduit)
+  const client = await createRestClient(getSettings().apiUrls.conduit)
 
   if (userCredentials) {
     const accessToken = await getAccessToken(client, userCredentials)
