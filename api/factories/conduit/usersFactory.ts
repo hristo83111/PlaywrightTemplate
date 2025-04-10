@@ -1,4 +1,4 @@
-import { settings } from 'settings/settings'
+import { getSettings } from 'settings/settings'
 import { faker } from '@faker-js/faker'
 
 // Types
@@ -19,7 +19,7 @@ export const createUserRequest = (
   user: {
     username: userCredentials?.username ?? faker.internet.username(),
     email: userCredentials?.email ?? faker.internet.email(),
-    password: userCredentials?.password ?? settings.password
+    password: userCredentials?.password ?? getSettings().password
   }
 })
 
